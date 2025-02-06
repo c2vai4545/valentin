@@ -10,16 +10,25 @@ export default function Home() {
     const result = await Swal.fire({
       title: '¿Estás segura?',
       text: '¿De verdad no quieres vivir esta aventura conmigo?',
-      icon: 'question',
+      html: '<div style="font-size: 48px; margin-bottom: 10px;">💔</div><div>¿De verdad no quieres vivir esta aventura conmigo?</div>',
       showCancelButton: true,
       confirmButtonText: 'No, no quiero',
       cancelButtonText: 'Está bien, me arriesgo',
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6',
+      confirmButtonColor: '#dc2626',
+      cancelButtonColor: '#ec4899',
+      background: '#fce7f3',
+      color: '#374151',
       allowOutsideClick: false,
       allowEscapeKey: false,
       showDenyButton: false,
-      showCloseButton: false
+      showCloseButton: false,
+      customClass: {
+        popup: 'rounded-lg shadow-lg',
+        title: 'text-2xl font-bold text-red-600',
+        htmlContainer: 'text-gray-700',
+        confirmButton: 'rounded-full font-semibold',
+        cancelButton: 'rounded-full font-semibold'
+      }
     });
 
     if (result.isDismissed || result.dismiss === Swal.DismissReason.cancel) {
