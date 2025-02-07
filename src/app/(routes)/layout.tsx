@@ -106,46 +106,53 @@ export default function RouteLayout({ children }: { children: React.ReactNode })
         setContent: setPageContent,
       }}
     >
-      <div className="w-screen h-screen p-8">
-        <div className="grid grid-cols-5 grid-rows-5 gap-8 h-full">
-          {/* --- Título (Dinámico) --- */}
-          <div className="col-span-5 row-span-1 bg-white rounded-xl shadow-xl p-8 flex items-center justify-center text-2xl font-bold text-red-600">
-            <PageContentConsumer contentKey="titulo" />
-          </div>
+      <div className="h-screen w-screen relative">
+        <main className="absolute inset-0 px-[55px]">
+          <div className="h-full grid grid-cols-5 grid-rows-5 gap-2 sm:gap-4">
+            {/* --- Título (Dinámico) --- */}
+            <div className="col-span-5 row-span-1 bg-white rounded-xl shadow-xl p-2 sm:p-4 flex items-center justify-center">
+              <div className="w-full text-center">
+                <PageContentConsumer contentKey="titulo" />
+              </div>
+            </div>
 
-          {/* --- Carrusel 1 (Fijo) --- */}
-          <div className="col-span-1 row-span-2 bg-white rounded-xl shadow-xl p-4 overflow-hidden">
-            <Carousel images={imageSets[0]} interval={6000} />
-          </div>
+            {/* --- Carrusel 1 (Fijo) --- */}
+            <div className="col-span-1 row-span-2 bg-white rounded-xl shadow-xl p-1 sm:p-2">
+              <Carousel images={imageSets[0]} interval={6000} />
+            </div>
 
-          {/* --- Mensaje (Dinámico) --- */}
-          <div className="col-span-3 row-span-2 bg-white rounded-xl shadow-xl p-8 flex items-center justify-center text-lg text-gray-700">
-            <PageContentConsumer contentKey="mensaje" />
-          </div>
+            {/* --- Mensaje (Dinámico) --- */}
+            <div className="col-span-3 row-span-2 bg-white rounded-xl shadow-xl p-2 sm:p-4 flex items-center justify-center">
+              <div className="w-full text-center">
+                <PageContentConsumer contentKey="mensaje" />
+              </div>
+            </div>
 
-          {/* --- Carrusel 2 (Fijo) --- */}
-          <div className="col-span-1 row-span-2 bg-white rounded-xl shadow-xl p-4 overflow-hidden">
-            <Carousel images={imageSets[1]} interval={7000} />
-          </div>
+            {/* --- Carrusel 2 (Fijo) --- */}
+            <div className="col-span-1 row-span-2 bg-white rounded-xl shadow-xl p-1 sm:p-2">
+              <Carousel images={imageSets[1]} interval={7000} />
+            </div>
 
-          {/* --- Carrusel 3 (Fijo) --- */}
-          <div className="col-span-1 row-span-2 bg-white rounded-xl shadow-xl p-4 overflow-hidden">
-            <Carousel images={imageSets[2]} interval={8000} />
-          </div>
+            {/* --- Carrusel 3 (Fijo) --- */}
+            <div className="col-span-1 row-span-2 bg-white rounded-xl shadow-xl p-1 sm:p-2">
+              <Carousel images={imageSets[2]} interval={8000} />
+            </div>
 
-          {/* --- Pista (Dinámico) --- */}
-          <div className="col-span-3 row-span-2 bg-white rounded-xl shadow-xl p-8 flex items-center justify-center text-xl text-red-500 font-semibold">
-            <PageContentConsumer contentKey="pista" />
-          </div>
+            {/* --- Pista (Dinámico) --- */}
+            <div className="col-span-3 row-span-2 bg-white rounded-xl shadow-xl p-2 sm:p-4 flex items-center justify-center">
+              <div className="w-full text-center">
+                <PageContentConsumer contentKey="pista" />
+              </div>
+            </div>
 
-          {/* --- Carrusel 4 (Fijo) --- */}
-          <div className="col-span-1 row-span-2 bg-white rounded-xl shadow-xl p-4 overflow-hidden">
-            <Carousel images={imageSets[3]} interval={5000} />
-          </div>
+            {/* --- Carrusel 4 (Fijo) --- */}
+            <div className="col-span-1 row-span-2 bg-white rounded-xl shadow-xl p-1 sm:p-2">
+              <Carousel images={imageSets[3]} interval={5000} />
+            </div>
 
-          {/* Contenido de la página (children) */}
-          {children}
-        </div>
+            {children}
+          </div>
+        </main>
       </div>
     </PageContentContext.Provider>
   );
