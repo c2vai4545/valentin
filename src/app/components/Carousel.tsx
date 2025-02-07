@@ -25,18 +25,19 @@ export default function Carousel({ images, interval = 5000 }: CarouselProps) {
         <div
           key={src}
           className={`absolute inset-0 transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
-          style={{ minHeight: '300px' }}
         >
-          <Image
-            src={src}
-            alt={`Carousel image ${index + 1}`}
-            fill
-            className="object-cover"
-            priority={index === 0}
-            sizes="(max-width: 768px) 100vw, 33vw"
-            quality={75}
-            onError={(e) => console.error('Error loading image:', src)}
-          />
+          <div className="relative w-full h-full">
+            <Image
+              src={src}
+              alt={`Carousel image ${index + 1}`}
+              fill
+              className="object-cover"
+              priority={index === 0}
+              sizes="(max-width: 768px) 100vw, 33vw"
+              quality={75}
+              loading="eager"
+            />
+          </div>
         </div>
       ))}
     </div>
