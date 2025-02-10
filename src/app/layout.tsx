@@ -1,7 +1,4 @@
-'use client';
-
 import { Geist, Geist_Mono } from "next/font/google";
-import { usePathname } from "next/navigation";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,14 +16,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const pathname = usePathname();
-
   return (
     <html lang="es">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-pink-100 min-h-screen p-4`}>
-        <main className="container mx-auto grid grid-cols-5 grid-rows-5 gap-4 h-[calc(100vh-2rem)]">
-          {children}
-        </main>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {children}
       </body>
     </html>
   );
