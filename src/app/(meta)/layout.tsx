@@ -100,15 +100,10 @@ export default function RouteLayout({ children }: { children: React.ReactNode })
   if (isLoading) return <div>Cargando...</div>;
 
   return (
-    <PageContentContext.Provider
-      value={{
-        content: pageContent,
-        setContent: setPageContent,
-      }}
-    >
-      <div className="h-screen w-screen relative">
+    <PageContentContext.Provider value={{ content: pageContent, setContent: setPageContent }}>
+      <div className="h-screen w-screen relative love-journey-bg">
         <main className="absolute inset-0 main-container">
-          <div className="h-full grid grid-cols-5 grid-rows-5 gap-2 sm:gap-4">
+          <div className="h-full grid grid-cols-5 grid-rows-5 gap-2 sm:gap-4 love-journey-grid">
             {/* --- Título (Dinámico) --- */}
             <div className="col-span-5 row-span-1 bg-white rounded-xl shadow-xl p-2 sm:p-4 flex items-center justify-center">
               <div className="w-full text-center">
@@ -121,8 +116,8 @@ export default function RouteLayout({ children }: { children: React.ReactNode })
               <Carousel images={imageSets[0]} interval={6000} />
             </div>
 
-            {/* --- Mensaje (Dinámico) --- */}
-            <div className="col-span-3 row-span-2 bg-white rounded-xl shadow-xl p-2 sm:p-4 flex items-center justify-center">
+            {/* --- Mensaje y Pista Unidos (Dinámico) --- */}
+            <div className="col-span-3 row-span-4 bg-white rounded-xl shadow-xl p-2 sm:p-4 flex items-center justify-center love-journey-message">
               <div className="w-full text-center">
                 <PageContentConsumer contentKey="mensaje" />
               </div>
@@ -136,13 +131,6 @@ export default function RouteLayout({ children }: { children: React.ReactNode })
             {/* --- Carrusel 3 (Fijo) --- */}
             <div className="col-span-1 row-span-2 bg-white rounded-xl shadow-xl p-1 sm:p-2">
               <Carousel images={imageSets[2]} interval={8000} />
-            </div>
-
-            {/* --- Pista (Dinámico) --- */}
-            <div className="col-span-3 row-span-2 bg-white rounded-xl shadow-xl p-2 sm:p-4 flex items-center justify-center">
-              <div className="w-full text-center">
-                <PageContentConsumer contentKey="pista" />
-              </div>
             </div>
 
             {/* --- Carrusel 4 (Fijo) --- */}
