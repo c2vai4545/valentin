@@ -10,7 +10,7 @@ export default function InicioPage() {
 
   // 1. Definir los elementos dinámicos
   const contenido = {
-    titulo: <h2>Nuestro Viaje de Amor</h2>,
+    titulo: <h2>! FELIZ DIA DE LOS ENAMORADOS !</h2>,
     mensaje: (
       <>
         <p className='text-start' style={{ textAlign: 'justify' }}>

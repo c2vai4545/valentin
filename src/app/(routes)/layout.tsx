@@ -2,6 +2,7 @@
 
 import { useState, useEffect, createContext, useContext } from 'react';
 import Carousel from '../components/Carousel';
+import Navbar from '../components/Navbar';
 
 // Definir el tipo para los elementos dinámicos
 interface PageContent {
@@ -75,7 +76,7 @@ const allImages = [
   '/imgs/IMG_5949.jpg',
 ];
 
-export default function RouteLayout({ children }: { children: React.ReactNode }) {
+export default function RoutesLayout({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
   const [imageSets, setImageSets] = useState<string[][]>([[], [], [], []]);
   const [pageContent, setPageContent] = useState<PageContent>({
@@ -106,7 +107,8 @@ export default function RouteLayout({ children }: { children: React.ReactNode })
         setContent: setPageContent,
       }}
     >
-      <div className="h-screen w-screen relative">
+      <Navbar />
+      <div className="h-screen w-screen relative pt-12">
         <main className="absolute inset-0 main-container">
           <div className="h-full grid grid-cols-5 grid-rows-5 gap-2 sm:gap-4">
             {/* --- Título (Dinámico) --- */}
