@@ -1,28 +1,10 @@
 'use client';
 
-import { useState, useEffect, createContext, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import Carousel from '../components/Carousel';
 import Navbar from '../components/Navbar';
-
-// Definir el tipo para los elementos dinámicos
-interface PageContent {
-  titulo: React.ReactNode;
-  mensaje: React.ReactNode;
-  pista: React.ReactNode;
-}
-
-// Modificar la definición del contexto para incluir la función setter
-export const PageContentContext = createContext<{
-  content: PageContent;
-  setContent: (content: PageContent) => void;
-}>({
-  content: {
-    titulo: <div>Título predeterminado</div>,
-    mensaje: <div>Mensaje predeterminado</div>,
-    pista: <div>Pista predeterminada</div>,
-  },
-  setContent: () => {}, // función vacía por defecto
-});
+import { PageContent, PageContentContext } from '../context/PageContentContext';
+import { PageContentConsumer } from '@/app/components/PageContentConsumer';
 
 // Imágenes para los carruseles
 const allImages = [
@@ -101,12 +83,7 @@ export default function RoutesLayout({ children }: { children: React.ReactNode }
   if (isLoading) return <div>Cargando...</div>;
 
   return (
-    <PageContentContext.Provider
-      value={{
-        content: pageContent,
-        setContent: setPageContent,
-      }}
-    >
+    <PageContentContext.Provider value={{ content: pageContent, setContent: setPageContent }}>
       <Navbar />
       <div className="h-screen w-screen relative pt-12">
         <main className="absolute inset-0 main-container">
@@ -158,10 +135,4 @@ export default function RoutesLayout({ children }: { children: React.ReactNode }
       </div>
     </PageContentContext.Provider>
   );
-}
-
-// Actualizar el PageContentConsumer
-function PageContentConsumer({ contentKey }: { contentKey: keyof PageContent }) {
-  const { content } = useContext(PageContentContext);
-  return <>{content[contentKey]}</>;
 }

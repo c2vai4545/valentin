@@ -1,28 +1,9 @@
 'use client';
 
-import { useState, useEffect, createContext, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Carousel from '../components/Carousel';
 import Navbar from '../components/Navbar';
-
-// Definir el tipo para los elementos dinámicos
-interface PageContent {
-  titulo: React.ReactNode;
-  mensaje: React.ReactNode;
-  pista: React.ReactNode;
-}
-
-// Modificar la definición del contexto para incluir la función setter
-export const PageContentContext = createContext<{
-  content: PageContent;
-  setContent: (content: PageContent) => void;
-}>({
-  content: {
-    titulo: <div>Título predeterminado</div>,
-    mensaje: <div>Mensaje predeterminado</div>,
-    pista: <div>Pista predeterminada</div>,
-  },
-  setContent: () => {}, // función vacía por defecto
-});
+import { PageContent, PageContentContext } from '../context/PageContentContext';
 
 // Imágenes para los carruseles
 const allImages = [
