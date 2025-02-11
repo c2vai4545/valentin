@@ -1,18 +1,18 @@
 'use client';
 
-import { PageContentContext } from '../layout';
-import { useContext, useEffect } from 'react';
+import { usePageContent } from '@/app/context/PageContentContext';
+import { useEffect } from 'react';
 
 export const dynamic = 'force-static';
 
-export default function InicioPage() {
-  const { setContent } = useContext(PageContentContext);
+export default function HabitacionPage() {
+  const { setContent } = usePageContent();
 
   // 1. Definir los elementos dinámicos
   const contenido = {
     titulo: <h2>4. Habitación</h2>,
-    mensaje: <p>Buen trabajo encontrando la pista, mi amor. Aquí, en este lugar, donde la cama suena mucho y es incómoda, sabemos que debe cambiarse. Pero no importa, porque esta es nuestra primera cama, y siempre quedará grabada a fuego en nuestra historia más hermosa. A pesar de todo, es un lugar donde nos encontramos, donde descansamos después de todo lo vivido.</p>,
-    pista: <p>Pero para seguir con esta búsqueda, debes ir a un lugar donde me pierdo en mí mismo, un espacio donde no podría seguir adelante si no fuera por tus mensajes, que me recuerdan que debo comer, ir al baño, y salir del mundo en el que me pierdo. Busca allí, y lo encontrarás.</p>,
+    mensaje: <p>¡Excelente trabajo, mi amor! Has encontrado el camino a nuestro santuario. Este espacio es más que solo una habitación; es nuestro refugio del mundo, donde podemos ser completamente nosotros mismos. Aquí hemos compartido risas, sueños, y momentos de pura felicidad. Es donde nos acurrucamos juntos en las noches frías, donde compartimos nuestros pensamientos más profundos, y donde nos refugiamos cuando el mundo exterior se vuelve demasiado ruidoso.</p>,
+    pista: <p>Tu próximo destino te lleva a un lugar donde la creatividad fluye y la tecnología cobra vida. Es donde las ideas se transforman en realidad y donde las horas pasan volando mientras trabajo en proyectos como este. Busca donde la magia digital sucede, donde mi iMac es testigo de largas jornadas de programación y donde vos siempre me recordás que debo descansar. La siguiente pista está escondida donde los pensamientos se convierten en código.</p>,
   };
 
   // 2. Actualizar el contexto al cargar la página

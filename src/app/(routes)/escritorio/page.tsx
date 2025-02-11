@@ -1,7 +1,7 @@
 'use client';
 
-import { PageContentContext } from '../layout';
 import { useContext, useEffect } from 'react';
+import { PageContentContext } from '@/app/context/PageContentContext';
 
 export const dynamic = 'force-static';
 

@@ -1,12 +1,12 @@
 'use client';
 
-import { PageContentContext } from '../layout';
-import { useContext, useEffect } from 'react';
+import { usePageContent } from '@/app/context/PageContentContext';
+import { useEffect } from 'react';
 
 export const dynamic = 'force-static';
 
-export default function InicioPage() {
-  const { setContent } = useContext(PageContentContext);
+export default function AutoPage() {
+  const { setContent } = usePageContent();
 
   // 1. Definir los elementos dinámicos
   const contenido = {
